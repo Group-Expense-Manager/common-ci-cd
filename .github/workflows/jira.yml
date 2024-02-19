@@ -31,4 +31,4 @@ jobs:
         working-directory: ./common-ci-cd/.github/actions
 
       - name: Validate Jira ticket numbers
-        run: node /jira-ticket-validator.js "${{ github.event.pull_request.title }}"
+        run: node ./jira-ticket-validator.js "${{ github.event.pull_request.title }}"

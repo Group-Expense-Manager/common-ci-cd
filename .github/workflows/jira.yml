@@ -13,6 +13,7 @@ on:
 ticketValidation:
   runs-on: ubuntu-latest
 
+jobs:
   steps:
     - name: Checkout code
       uses: actions/checkout@v2

@@ -28,7 +28,10 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./common-ci-cd/.github/actions
+
+      - name: tmp
+        run: ls -a
 
       - name: Validate Jira ticket numbers
         run: node ./jira-ticket-validator.js "${{ github.event.pull_request.title }}"
+        working-directory: ./common-ci-cd/.github/actions

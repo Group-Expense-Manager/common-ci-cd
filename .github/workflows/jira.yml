@@ -26,6 +26,10 @@ jobs:
         with:
           node-version: "16"
 
+      - name: test
+        run: ls -a
+        working-directory: ./common-ci-cd/.github/actions
+
       - name: Install dependencies
         run: npm install
         working-directory: ./common-ci-cd/.github/actions

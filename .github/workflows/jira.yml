@@ -10,26 +10,25 @@ name: Kotlin CI
 on:
   workflow_call:
 
-ticketValidation:
-  runs-on: ubuntu-latest
-
 jobs:
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+  ticketValidation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Install Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: "16"
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
 
-    - name: Install dependencies
-      run: npm install
-      with:
-        repository: "Group-Expense-Manager/common-ci-cd"
-        path: "common-ci-cd"
-        ref: "main"
-      working-directory: ./common-ci-cd/.github/actions
+      - name: Install dependencies
+        run: npm install
+        with:
+          repository: "Group-Expense-Manager/common-ci-cd"
+          path: "common-ci-cd"
+          ref: "main"
+        working-directory: ./common-ci-cd/.github/actions
 
-    - name: Validate Jira ticket numbers
-      run: node /jira-ticket-validator.js "${{ github.event.pull_request.title }}"
+      - name: Validate Jira ticket numbers
+        run: node /jira-ticket-validator.js "${{ github.event.pull_request.title }}"

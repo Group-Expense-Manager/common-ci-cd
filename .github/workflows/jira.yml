@@ -25,7 +25,6 @@ jobs:
       - name: Install dependencies
         run: npm install
         working-directory: ./common-ci-cd/.github/actions
-        if: steps.cache-npm.outputs.cache-hit != 'true'
 
       - name: Validate Jira ticket numbers
         run: node ./jira-ticket-validator.js "${{ github.event.pull_request.title }}"

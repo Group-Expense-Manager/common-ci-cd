@@ -15,6 +15,7 @@ jobs:
           ref: "main"
 
       - name: Install Node.js
+        id: cache-npm
         uses: actions/setup-node@v4
         with:
           node-version: "20"
@@ -24,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: npm install
         working-directory: ./common-ci-cd/.github/actions
-        if: steps.cache-packages.outputs.cache-hit != 'true'
+        if: steps.cache-npm.outputs.cache-hit != 'true'
 
       - name: Validate Jira ticket numbers
         run: node ./jira-ticket-validator.js "${{ github.event.pull_request.title }}"

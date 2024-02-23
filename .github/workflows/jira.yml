@@ -16,6 +16,7 @@ jobs:
 
       - name: Install Node.js
         uses: actions/setup-node@v4
+        working-directory: ./common-ci-cd/.github/actions
         with:
           node-version: "20"
           cache: "npm"

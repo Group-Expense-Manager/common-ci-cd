@@ -14,8 +14,6 @@ jobs:
           path: "common-ci-cd"
           ref: "main"
 
-      - run: cd ./common-ci-cd/.github/actions
-
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:

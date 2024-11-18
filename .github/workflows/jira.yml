@@ -24,5 +24,10 @@ jobs:
         working-directory: ./common-ci-cd/.github/actions
 
       - name: Validate Jira ticket numbers
-        run: node ./jira-ticket-validator.js "${{ github.event.pull_request.title }}"
+        run: |
+          if [[ "${{ github.event.pull_request.head.ref }}" == dependabot/* ]]; then
+            echo "Dependabot PR detected. Skipping Jira ticket validation."
+            exit 0
+          fi
+          node ./jira-ticket-validator.js "${{ github.event.pull_request.title }}"
         working-directory: ./common-ci-cd/.github/actions

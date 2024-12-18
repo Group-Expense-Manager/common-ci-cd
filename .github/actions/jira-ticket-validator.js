@@ -9,7 +9,7 @@ function validateJiraTicket(jiraTicketRegex, input, fieldName) {
     }
 }
 
-const jiraTicketRegex = /^GEM-\d+[-_]?\w*$/;
+const jiraTicketRegex = /^GEM-\d+([-_]?\w*|\s\|\s\w.*)?$/;
 
 const branchName = process.env.GITHUB_HEAD_REF || '';
 const prTitle = process.argv[2];
